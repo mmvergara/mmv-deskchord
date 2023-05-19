@@ -1,11 +1,30 @@
 {
   "compilerOptions": {
+    "lib": ["ES2022"],
     "module": "NodeNext",
-    "moduleResolution": "node",
-    "baseUrl": "src",
+    "moduleResolution": "nodenext",
+    "target": "ESNext",
     "outDir": "dist",
-    "sourceMap": true,
-    "noImplicitAny": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@config": ["src/config"],
+      "@controllers/*": ["src/controllers/*"],
+      "@errors": ["src/errors"],
+      "@models": ["src/models"],
+      "@loaders": ["src/loaders"],
+      "@routes/*": ["src/routes/*"],
+      "@services": ["src/services"],
+      "@utils": ["src/utils"]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.json"]
+  /*
+   * ts-node 10.9.1 does not currently support TypeScript 5+ features such as combined extend configs.
+   * https://github.com/tsconfig/bases/#what-about-combined-configs
+   */
+  // "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node-lts/tsconfig"]
 }
